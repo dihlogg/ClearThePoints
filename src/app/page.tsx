@@ -1,16 +1,12 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { FaCheckCircle } from "react-icons/fa";
-import { MdCancel } from "react-icons/md";
-import { GiTargetArrows } from "react-icons/gi";
 import GameHeader from "@/components/header";
 import GameControls from "@/components/game-controls";
 import GameButtons from "@/components/buttons";
 import GameBoard from "@/components/game-board";
 
 export default function ClearPointsGame() {
-  const [points, setPoints] = useState(10);
   const [gamePoints, setGamePoints] = useState<
     { id: number; x: number; y: number }[]
   >([]);
@@ -39,18 +35,17 @@ export default function ClearPointsGame() {
 
   const startGame = () => {
     setAutoPlay(false);
-    clearInterval(autoPlayRef.current!);
+    if (autoPlayRef.current) clearInterval(autoPlayRef.current);
 
-    setGamePoints(
-      Array.from({ length: inputPoints }, (_, i) => ({
-        id: i + 1,
-        x: Math.random() * 280,
-        y: Math.random() * 280,
-      }))
-    );
+    const newPoints = Array.from({ length: inputPoints }, (_, i) => ({
+      id: i + 1,
+      x: Math.random() * 280,
+      y: Math.random() * 280,
+    }));
 
-    currentIndexRef.current = 1;
+    setGamePoints(newPoints);
     setElapsedTime(0);
+    currentIndexRef.current = 1;
     setGameStatus("playing");
   };
 
@@ -112,7 +107,7 @@ export default function ClearPointsGame() {
         } else if (currentIndexRef.current > inputPoints) {
           if (autoPlayRef.current) clearInterval(autoPlayRef.current);
         }
-      }, 300);
+      }, 700);
     }
 
     return () => {

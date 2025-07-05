@@ -18,7 +18,7 @@ export default function GameHeader({ gameStatus }: { gameStatus: string }) {
       ) : (
         <>
           <GiTargetArrows className="text-blue-500" />
-          LET'S PLAY!
+          LET PLAY!
         </>
       )}
     </h1>
