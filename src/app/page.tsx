@@ -116,7 +116,7 @@ export default function ClearPointsGame() {
   }, [autoPlay, gamePoints, gameStatus]);
 
   return (
-    <div className="p-6 space-y-6 bg-gradient-to-br from-blue-50 via-white to-green-50 min-h-screen rounded-md shadow-lg">
+    <div className="p-4 sm:p-6 space-y-6 bg-gradient-to-br from-blue-50 via-white to-green-50 min-h-screen rounded-md shadow-lg max-w-full mx-auto">
       <GameHeader gameStatus={gameStatus} />
       <GameControls
         inputValue={inputValue}

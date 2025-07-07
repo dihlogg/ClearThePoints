@@ -4,7 +4,7 @@ import { GiTargetArrows } from "react-icons/gi";
 
 export default function GameHeader({ gameStatus }: { gameStatus: string }) {
   return (
-    <h1 className="text-2xl font-bold text-gray-700 text-center flex items-center justify-center gap-2">
+    <h1 className="text-xl md:text-2xl font-bold text-gray-700 text-center flex items-center justify-center gap-2">
       {gameStatus === "cleared" ? (
         <>
           <FaCheckCircle className="text-green-500" />
@@ -18,7 +18,7 @@ export default function GameHeader({ gameStatus }: { gameStatus: string }) {
       ) : (
         <>
           <GiTargetArrows className="text-blue-500" />
-          LET PLAY!
+          LET'S PLAY!
         </>
       )}
     </h1>
