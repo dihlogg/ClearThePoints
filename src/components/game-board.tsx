@@ -1,7 +1,7 @@
 import { GameBoardProps } from "@/types/types";
 export default function GameBoard({ gamePoints, handleClick }: GameBoardProps) {
   return (
-    <div className="relative w-[520px] h-[520px] border-2 border-blue-200 bg-white rounded-md mx-auto shadow-inner">
+    <div className="relative w-full max-w-[520px] aspect-square border-2 border-blue-200 bg-white rounded-md mx-auto shadow-inner">
       {gamePoints.map((point) => (
         <div
           key={point.id}
